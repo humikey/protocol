@@ -235,3 +235,16 @@ func (x *GetPaginationFriendsResp) Format() any {
 	}
 	return x
 }
+
+func (x *AddFriendCategoryReq) Check() error {
+	if x.OwnerUserID == "" {
+		return errors.New("OwnerUserID is empty")
+	}
+	if x.FriendUserID == "" {
+		return errors.New("FriendUserID is empty")
+	}
+	if x.Category == 0 {
+		return errors.New("Category is empty")
+	}
+	return nil
+}
