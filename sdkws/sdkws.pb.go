@@ -727,8 +727,10 @@ type FriendInfo struct {
 	OperatorUserID string                 `protobuf:"bytes,6,opt,name=operatorUserID,proto3" json:"operatorUserID"`
 	Ex             string                 `protobuf:"bytes,7,opt,name=ex,proto3" json:"ex"`
 	IsPinned       bool                   `protobuf:"varint,8,opt,name=isPinned,proto3" json:"isPinned"`
-	unknownFields  protoimpl.UnknownFields
-	sizeCache      protoimpl.SizeCache
+	// 新增 Category 字段
+	Category      int32 `protobuf:"varint,9,opt,name=category,proto3" json:"category"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *FriendInfo) Reset() {
@@ -815,6 +817,13 @@ func (x *FriendInfo) GetIsPinned() bool {
 		return x.IsPinned
 	}
 	return false
+}
+
+func (x *FriendInfo) GetCategory() int32 {
+	if x != nil {
+		return x.Category
+	}
+	return 0
 }
 
 type BlackInfo struct {
@@ -5669,7 +5678,7 @@ const file_sdkws_sdkws_proto_rawDesc = "" +
 	"\bnickname\x18\x02 \x01(\v2\x1c.openim.protobuf.StringValueR\bnickname\x126\n" +
 	"\afaceURL\x18\x03 \x01(\v2\x1c.openim.protobuf.StringValueR\afaceURL\x12,\n" +
 	"\x02ex\x18\x04 \x01(\v2\x1c.openim.protobuf.StringValueR\x02ex\x12G\n" +
-	"\x10globalRecvMsgOpt\x18\a \x01(\v2\x1b.openim.protobuf.Int32ValueR\x10globalRecvMsgOpt\"\x90\x02\n" +
+	"\x10globalRecvMsgOpt\x18\a \x01(\v2\x1b.openim.protobuf.Int32ValueR\x10globalRecvMsgOpt\"\xac\x02\n" +
 	"\n" +
 	"FriendInfo\x12 \n" +
 	"\vownerUserID\x18\x01 \x01(\tR\vownerUserID\x12\x16\n" +
@@ -5683,7 +5692,8 @@ const file_sdkws_sdkws_proto_rawDesc = "" +
 	"\taddSource\x18\x05 \x01(\x05R\taddSource\x12&\n" +
 	"\x0eoperatorUserID\x18\x06 \x01(\tR\x0eoperatorUserID\x12\x0e\n" +
 	"\x02ex\x18\a \x01(\tR\x02ex\x12\x1a\n" +
-	"\bisPinned\x18\b \x01(\bR\bisPinned\"\xe7\x01\n" +
+	"\bisPinned\x18\b \x01(\bR\bisPinned\x12\x1a\n" +
+	"\bcategory\x18\t \x01(\x05R\bcategory\"\xe7\x01\n" +
 	"\tBlackInfo\x12 \n" +
 	"\vownerUserID\x18\x01 \x01(\tR\vownerUserID\x12\x1e\n" +
 	"\n" +

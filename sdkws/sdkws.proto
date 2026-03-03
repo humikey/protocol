@@ -88,6 +88,8 @@ message FriendInfo {
   string operatorUserID = 6;
   string ex = 7;
   bool isPinned = 8;
+  // 新增 Category 字段
+  int32 category = 9;
 }
 
 message BlackInfo {
